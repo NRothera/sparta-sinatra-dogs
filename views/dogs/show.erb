@@ -1,1 +1,4 @@
-<h1>Show page</h1>
+<h1><%= @dog[:title] %></h1>
+<p><%= @dog[:body] %></p>
+<a href='/dogs/<%= @dog[:id] %>/edit'>Edit photo</a>
+<img src="<%= @dog[:image] %>" alt="">
