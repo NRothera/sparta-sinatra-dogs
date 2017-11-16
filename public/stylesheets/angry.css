@@ -5,6 +5,7 @@ nav {
   top:0px;
   width: 100%;
   left:0px;
+  word-spacing: 20px;
 }
 
 nav a {
@@ -34,4 +35,11 @@ footer{
   width:100%;
   left:0px;
   background-color: purple;
+}
+
+footer a{
+  font-size: 30px;
+  color:white;
+  word-spacing: 20px;
+  text-decoration: none;
 }

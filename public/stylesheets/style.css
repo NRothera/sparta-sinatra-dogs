@@ -5,6 +5,8 @@ nav {
   top:0px;
   width: 100%;
   left:0px;
+  word-spacing: 20px;
+  text-decoration: none;
 }
 
 nav a {
