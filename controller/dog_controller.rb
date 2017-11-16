@@ -1,6 +1,7 @@
 class DogController < Sinatra::Base
   set :root, File.join(File.dirname(__FILE__), '..')
   set :views, Proc.new { File.join(root, "views") }
+  
 
   configure :development do
     register Sinatra::Reloader
@@ -20,8 +21,8 @@ class DogController < Sinatra::Base
 },
 {
     id: 2,
-    title: "Photo 3",
-    body: "This is the third dog"
+    title: "Click here for an angry dog",
+    body: "Angry dog",
 }]
 
   get "/" do
@@ -46,6 +47,10 @@ class DogController < Sinatra::Base
 
     "Text"
 
+  end
+
+  post "/dogs/angry" do
+    "angry dog page"
   end
 
   get "/dogs/:id/edit" do
