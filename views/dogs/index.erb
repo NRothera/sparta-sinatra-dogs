@@ -1,0 +1,8 @@
+<h1>Look at this adorable dog!</h1>
+
+<% @dogs.each do |dog| %>
+  <div>
+    <h3><a href="/dogs/<%= dog[:id]%>"><%= dog[:title] %></a></h3>
+    <img src="<%= dog[:image]%>" alt="">
+  </div>
+<% end %>
