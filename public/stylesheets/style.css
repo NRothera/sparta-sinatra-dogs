@@ -12,6 +12,9 @@ nav {
 nav a {
   color:white;
   font-size: 30px;
+}
+
+nav a:hover{
   background-color: grey;
 }
 

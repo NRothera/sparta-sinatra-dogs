@@ -12,6 +12,9 @@ nav a {
   color:white;
   font-size: 30px;
   text-decoration: none;
+}
+
+nav a:hover{
   background-color: grey;
 }
 
@@ -32,6 +35,7 @@ footer{
   width:100%;
   left:0px;
   background-color: purple;
+  word-spacing: 20px;
 }
 
 footer a{
