@@ -2,7 +2,6 @@ class DogController < Sinatra::Base
   set :root, File.join(File.dirname(__FILE__), '..')
   set :views, Proc.new { File.join(root, "views") }
 
-
   configure :development do
     register Sinatra::Reloader
   end
@@ -33,11 +32,9 @@ class DogController < Sinatra::Base
     image: "https://i.pinimg.com/736x/15/1f/47/151f470bcc9e668264d71460fdb872cf--funny-humor-funny-dogs.jpg"
       }]
 
-
   get "/" do
     @title = "Dog Homepage"
     erb :"dogs/home"
-
   end
 
   get "/dogs" do
@@ -47,16 +44,13 @@ class DogController < Sinatra::Base
   end
 
   get "/dogs/new" do
-
     erb :'dogs/new'
-
   end
 
   get "/dogs/angry" do
     @title = "Angry dogs"
     @angry_dog = $angry_dogs
     erb :'angry_dogs/index'
-
   end
 
   get "/dogs/angry/new" do
@@ -66,42 +60,14 @@ class DogController < Sinatra::Base
 
   get "/angry_dogs/:id" do
     id = params[:id].to_i
-
     @angry_dog = $angry_dogs[id]
     erb :'angry_dogs/show'
   end
 
-  post "/dogs" do
-
-    "Text"
-
-  end
-
-  get "/dogs/:id/edit" do
-    "Text"
-
-  end
-
   get "/dogs/:id" do
-
     id = params[:id].to_i
-
     @dog = $dogs[id]
     erb :'dogs/show'
-
   end
-
-  put "/dogs/:id" do
-
-    "update photo"
-
-  end
-
-  delete "/dogs/:id" do
-
-    "delete photo"
-
-  end
-
 
 end
