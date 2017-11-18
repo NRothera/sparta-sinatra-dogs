@@ -1,0 +1,21 @@
+<form action="/dogs/<%= @dog.id %>" method="POST">
+  <div>
+    <label>Dog Name</label>
+    <input type="text" name="title" value="<%= @dog.title %>" placeholder="Enter the name of your dog">
+  </div>
+  <div>
+    <label>Body</label>
+    <textarea name="body" rows="8" cols="40" placeholder="Tell us about your dog"><%= @dog.body %></textarea>
+  </div>
+  <div>
+    <label>Image</label>
+    <input type="text" name="" placeholder="Please enter the link to your image"><%= @dog.image %>
+  </div>
+  <div>
+    <input type="submit" value="Save Post">
+  </div>
+
+  <% if (@dog.id != "") %>
+  <input type="hidden" name="_method" value="PUT">
+  <% end %>
+</form>

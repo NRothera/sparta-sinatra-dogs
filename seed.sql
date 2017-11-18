@@ -1,71 +1,15 @@
-class Post
+DROP TABLE IF EXISTS dogs_rule;
 
-  attr_accessor :id, :title, :body
+CREATE TABLE dogs_rule (
 
-  def save
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255),
+  body TEXT,
+  image TEXT
 
-    conn = Post.open_connection
+);
 
-    sql = "INSERT INTO post (title, body) VALUES ('#{self.title}', '#{self.body}')"
-
-    conn.exec(sql)
-
-  end
-
-
-
-  def self.open_connection
-
-    conn = PG.connect(dbname: "blog")
-
-  end
-
-
-
-
-
-  def self.all
-
-    conn = self.open_connection
-
-    sql = "SELECT id,title,body FROM post ORDER BY id"
-
-    results = conn.exec(sql)
-
-    posts = results.map do |post|
-      self.hydrate(post)
-    end
-
-  end
-
-  def self.find(id)
-
-    conn = self.open_connection
-
-    sql = "SELECT * FROM post WHERE id =#{id} LIMIT 1"
-
-    posts = conn.exec(sql)
-
-    post = self.hydrate(posts[0])
-
-    post
-
-  end
-
-  def self.hydrate(post_data)
-
-    post = Post.new
-
-    post.id = post_data['id']
-    post.title = post_data['title']
-    post.body = post_data['body']
-
-    post
-
-  end
-
-
-
-
-
-end
+INSERT INTO dogs_rule (title , body, image) VALUES ('Post 1' , 'Body text 1', 'image1');
+INSERT INTO dogs_rule (title , body, image) VALUES ('Post 2' , 'Body text 2','image2');
+INSERT INTO dogs_rule (title , body,image) VALUES ('Post 3' , 'Body text 3','image3');
+INSERT INTO dogs_rule (title , body,image) VALUES ('Post 4' , 'Body text 4','image4');

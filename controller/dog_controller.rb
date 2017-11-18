@@ -6,19 +6,6 @@ class DogController < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  $dogs = [{
-	 id: 0,
-	 title: "Cute pupper",
-	 body: "Pupper stares whimzically into the distance",
-   image: "http://img.zergnet.com/731737_300.jpg"
-   },
-   {
-    id: 1,
-    title: "Fluffy pupper",
-    body: "Souless dark eyes stare up at you",
-    image: "http://media.dogaidsociety.com.s3-eu-west-1.amazonaws.com/IMG_0253-300x300.jpg"
-  }]
-
   $angry_dogs = [{
     id:0,
     title: "ohh nooo he's angry",
@@ -34,17 +21,44 @@ class DogController < Sinatra::Base
 
   get "/" do
     @title = "Dog Homepage"
+
+
     erb :"dogs/home"
   end
 
   get "/dogs" do
     @title = "Dog Pictures"
-    @dogs = $dogs
+    @dogs = Post.all
     erb :'dogs/index'
   end
 
+  post '/dogs' do
+
+    dog = Post.new
+    dog.title = params[:title]
+    dog.body = params[:body]
+    dog.image = params[:image]
+
+    dog.save
+
+    redirect "/"
+  end
+
   get "/dogs/new" do
+    @dog = Post.new
     erb :'dogs/new'
+  end
+
+  post '/dogs' do
+
+    post = Post.new
+
+    post.title = params[:title]
+    post.body = params[:body]
+
+    post.save
+
+    redirect "/"
   end
 
   get "/dogs/angry" do
@@ -66,8 +80,37 @@ class DogController < Sinatra::Base
 
   get "/dogs/:id" do
     id = params[:id].to_i
-    @dog = $dogs[id]
+    @dog = Post.find(id)
     erb :'dogs/show'
+  end
+
+  put "/dogs/:id" do
+
+    id = params[:id].to_i
+
+    dog=Post.find(id)
+
+    dog.title = params[:title]
+    dog.body = params[:body]
+    dog.image = params[:image]
+
+    dog.save
+
+    redirect '/'
+
+  end
+
+  get '/dogs/:id/edit' do
+    id = params[:id].to_i
+    @dog = Post.find(id)
+    erb :'dogs/edit'
+  end
+
+  delete '/dogs/:id' do
+
+    id=params[:id].to_i
+    Post.destroy(id)
+    redirect '/'
   end
 
 end
