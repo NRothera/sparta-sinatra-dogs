@@ -7,7 +7,7 @@ class Post
     conn = Post.open_connection
 
     if (!self.id)
-      sql = "INSERT INTO dogs_rule (title,body, image) VALUES ('#{self.title}', '#{self.body}', '#{self.image}')"
+      sql = "INSERT INTO dogs_rule (title,body,image) VALUES ('#{self.title}', '#{self.body}', '#{self.image}')"
     else
       sql="UPDATE dogs_rule SET title='#{self.title}', body='#{self.body}', image='#{self.image}' WHERE id=#{self.id}"
     end
