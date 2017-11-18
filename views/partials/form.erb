@@ -9,13 +9,13 @@
   </div>
   <div>
     <label>Image</label>
-    <input type="text" name="" placeholder="Please enter the link to your image"><%= @dog.image %>
+    <textarea name="name" rows="1" cols="40" placeholder="Please enter the link to your image"><%= @dog.image %></textarea>
   </div>
   <div>
     <input type="submit" value="Save Post">
   </div>
 
-  <% if (@dog.id != "") %>
+  <% if (@dog.id) %>
   <input type="hidden" name="_method" value="PUT">
   <% end %>
 </form>

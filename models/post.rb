@@ -24,25 +24,13 @@ class Post
 
     conn =self.open_connection
 
-    sql = "SELECT id, title, body, image FROM dogs_rule ORDER BY id"
+    sql = "SELECT id, title, body, image FROM dogs_rule ORDER BY id DESC"
 
     results = conn.exec(sql)
 
     post=results.map do |post|
       self.hydrate(post)
     end
-  end
-
-  def self.hydrate(dog_data)
-
-    dog = Post.new
-
-    dog.id = dog_data['id']
-    dog.title = dog_data['title']
-    dog.body = dog_data['body']
-    dog.image = dog_data['image']
-
-    dog
   end
 
   def self.find(id)
@@ -67,5 +55,17 @@ class Post
 
   end
 
+
+  def self.hydrate(dog_data)
+
+    dog = Post.new
+
+    dog.id = dog_data['id']
+    dog.title = dog_data['title']
+    dog.body = dog_data['body']
+    dog.image = dog_data['image']
+
+    dog
+  end
 
 end

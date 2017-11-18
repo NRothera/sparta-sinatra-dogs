@@ -6,19 +6,6 @@ class DogController < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  $angry_dogs = [{
-    id:0,
-    title: "ohh nooo he's angry",
-    body: "He's going to get you!",
-    image: "http://doggroomeradvice.com/wp-content/uploads/2012/03/angry-dog-300x300.jpg"
-    },
-    {
-    id: 1,
-    title: "This one's upset too!",
-    body: "better give him a treat",
-    image: "https://i.pinimg.com/736x/15/1f/47/151f470bcc9e668264d71460fdb872cf--funny-humor-funny-dogs.jpg"
-      }]
-
   get "/" do
     @title = "Dog Homepage"
 
@@ -32,6 +19,23 @@ class DogController < Sinatra::Base
     erb :'dogs/index'
   end
 
+  get "/dogs/" do
+    @title = "Dog Pictures"
+    @dogs = Post.all
+    erb :'dogs/index'
+  end
+
+  get "/dogs/new" do
+    @dog = Post.new
+    erb :'dogs/new'
+  end
+
+  get "/dogs/:id" do
+    id = params[:id].to_i
+    @dog = Post.find(id)
+    erb :'dogs/show'
+  end
+
   post '/dogs' do
 
     dog = Post.new
@@ -41,47 +45,19 @@ class DogController < Sinatra::Base
 
     dog.save
 
-    redirect "/"
+    redirect "/dogs/"
   end
 
-  get "/dogs/new" do
-    @dog = Post.new
-    erb :'dogs/new'
-  end
+  post '/dogs/' do
 
-  post '/dogs' do
+    dog = Post.new
+    dog.title = params[:title]
+    dog.body = params[:body]
+    dog.image = params[:image]
 
-    post = Post.new
+    dog.save
 
-    post.title = params[:title]
-    post.body = params[:body]
-
-    post.save
-
-    redirect "/"
-  end
-
-  get "/dogs/angry" do
-    @title = "Angry dogs"
-    @angry_dog = $angry_dogs
-    erb :'angry_dogs/index'
-  end
-
-  get "/dogs/angry/new" do
-    @title = "New Dog"
-    erb :'angry_dogs/new'
-  end
-
-  get "/angry_dogs/:id" do
-    id = params[:id].to_i
-    @angry_dog = $angry_dogs[id]
-    erb :'angry_dogs/show'
-  end
-
-  get "/dogs/:id" do
-    id = params[:id].to_i
-    @dog = Post.find(id)
-    erb :'dogs/show'
+    redirect "/dogs/"
   end
 
   put "/dogs/:id" do
@@ -96,21 +72,21 @@ class DogController < Sinatra::Base
 
     dog.save
 
-    redirect '/'
+    redirect '/dogs/'
 
-  end
-
-  get '/dogs/:id/edit' do
-    id = params[:id].to_i
-    @dog = Post.find(id)
-    erb :'dogs/edit'
   end
 
   delete '/dogs/:id' do
 
     id=params[:id].to_i
     Post.destroy(id)
-    redirect '/'
+    redirect '/dogs'
+  end
+
+  get '/dogs/:id/edit' do
+    id = params[:id].to_i
+    @dog = Post.find(id)
+    erb :'dogs/edit'
   end
 
 end
