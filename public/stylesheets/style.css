@@ -9,7 +9,8 @@ nav {
   top:0px;
   width: 100%;
   left:0px;
-  text-align: center
+  text-align: center;
+  display: inline-block;
 }
 
 nav a {
@@ -17,6 +18,7 @@ nav a {
   font-size: 30px;
   text-decoration: none;
   margin-left: 20px;
+  display: inline-block;
 }
 
 nav a:hover {
@@ -60,9 +62,47 @@ img{
   top:40px;
 }
 
-#title {
-  margin-top: 80px;
-  padding-top: 30px;
+#edit_form {
+  display: run-in;
+  background-color: white;
+  width: 400px;
+  margin:auto;
+  margin-top: 60px;
+  height:300px;
+  border: 8px groove black;
+}
+
+#edit_form div {
+  margin-top: 20px;
+}
+
+#name {
+  width:233px;
+  margin-right: 36px;
+  margin-bottom: 5px;
+}
+
+#info {
+  float: right;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+#delete {
+  height:40px;
+  width: 70px;
+  border-radius: 10px;
+  margin-left: 490px;
+  background-color: lightblue;
+}
+
+#edit {
+  margin-top: 40px;
+  height: 40px;
+  width: 70px;
+  border-radius: 10px;
+  background-color: lightblue;
 }
 
 body {
@@ -86,4 +126,19 @@ footer {
 
 footer a {
   opacity: 1;
+}
+
+#trademark {
+  position: absolute;
+  left: 0px;
+  color: grey;
+  font-size: 20px;
+  top: 20px;
+}
+
+.container {
+  text-shadow: 1px 1px white;
+  width:600px;
+  margin: auto;
+  margin-top: 60px;
 }

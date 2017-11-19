@@ -1,7 +1,7 @@
-<form action="/dogs/<%= @dog.id %>" method="POST">
+<form id="edit_form" action="/dogs/<%= @dog.id %>" method="POST">
   <div>
     <label>Dog Name</label>
-    <input type="text" name="title" value="<%= @dog.title %>" placeholder="Enter the name of your dog">
+    <input id="name" type="text" name="title" value="<%= @dog.title %>" placeholder="Enter the name of your dog">
   </div>
   <div>
     <label>Body</label>

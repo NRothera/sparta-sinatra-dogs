@@ -8,8 +8,6 @@ class DogController < Sinatra::Base
 
   get "/" do
     @title = "Dog Homepage"
-
-
     erb :"dogs/home"
   end
 
@@ -34,6 +32,10 @@ class DogController < Sinatra::Base
     id = params[:id].to_i
     @dog = Post.find(id)
     erb :'dogs/show'
+  end
+
+  get "/info" do
+    erb :"dogs/info"
   end
 
   post '/dogs' do
