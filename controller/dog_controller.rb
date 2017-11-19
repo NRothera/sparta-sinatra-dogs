@@ -78,7 +78,7 @@ class DogController < Sinatra::Base
 
     dog.save
 
-    redirect '/dogs/'
+    redirect '/dogs'
 
   end
 

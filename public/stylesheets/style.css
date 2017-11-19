@@ -62,6 +62,11 @@ img{
   top:40px;
 }
 
+#body {
+  width:400px;
+  margin: auto;
+}
+
 #edit_form {
   display: run-in;
   background-color: white;
