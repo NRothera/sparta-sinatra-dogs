@@ -1,3 +1,89 @@
-*{
+* {
   text-decoration: none;
+}
+
+nav {
+  background-color: black;
+  height:50px;
+  position: absolute;
+  top:0px;
+  width: 100%;
+  left:0px;
+  text-align: center
+}
+
+nav a {
+  color:white;
+  font-size: 30px;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+nav a:hover {
+  background-color: grey;
+}
+
+h3 {
+ line-height: 1px;
+}
+
+nav a:hover{
+  background-color: grey;
+}
+
+footer a {
+  font-size: 30px;
+  color:white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+footer a:hover {
+  background-color: grey;
+}
+
+img{
+  width:300px;
+  height:300px;
+  text-align: center;
+  line-height: 5px;
+}
+
+#content {
+  width: 600px;
+  border-right: 10px solid black;
+  border-left: 10px solid black;
+  margin: auto;
+  background-color: white;
+  display: inline-block;
+  position: relative;
+  top:40px;
+}
+
+#title {
+  margin-top: 80px;
+  padding-top: 30px;
+}
+
+body {
+  height:100%;
+  min-height:100%;
+  text-align: center;
+  background: url('https://i.pinimg.com/736x/13/13/81/131381e5eed69f6e0b0b970b9d3422d0--dog-pattern-wallpaper-wallpaper-dog.jpg') repeat;
+}
+
+footer {
+  position: fixed;
+  bottom:0;
+  background-color: blue;
+  width: 100%;
+  height:80px;
+  opacity: 0.5;
+  left:0px;
+  text-align: center;
+  z-index: 1;
+}
+
+footer a {
+  opacity: 1;
 }

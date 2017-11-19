@@ -1,6 +1,6 @@
 <% @dogs.each do |dog| %>
-  <div>
+  <div id="content">
     <h3><a href="/dogs/<%= dog.id %>"><%= dog.title %></a></h3>
     <img src="<%= dog.image%>" alt="">
-  </div>
+  </div><!-- -->
 <% end %>
