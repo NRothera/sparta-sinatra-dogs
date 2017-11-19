@@ -1,7 +1,6 @@
-*{
+* {
   text-decoration: none;
 }
-<<<<<<< HEAD
 
 nav {
   background-color: black;
@@ -61,6 +60,10 @@ img{
   top:40px;
 }
 
+form{
+  z-index: 1
+}
+
 body {
   height:100%;
   min-height:100%;
@@ -87,5 +90,3 @@ footer a {
 a {
   color: black;
 }
-=======
->>>>>>> parent of baddfb4... styling, website still works
