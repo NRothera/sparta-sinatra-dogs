@@ -9,37 +9,42 @@ class DogController < Sinatra::Base
   get "/" do
     @title = "Dog Homepage"
     erb :"dogs/home"
+
   end
 
   get "/dogs" do
     @title = "Dog Pictures"
     @dogs = Post.all
     erb :'dogs/index'
+
   end
 
   get "/dogs/" do
     @title = "Dog Pictures"
     @dogs = Post.all
     erb :'dogs/index'
+
   end
 
   get "/dogs/new" do
     @dog = Post.new
     erb :'dogs/new'
+
   end
 
   get "/dogs/:id" do
     id = params[:id].to_i
     @dog = Post.find(id)
     erb :'dogs/show'
+
   end
 
   get "/info" do
     erb :"dogs/info"
+
   end
 
   post '/dogs' do
-
     dog = Post.new
     dog.title = params[:title]
     dog.body = params[:body]
@@ -51,7 +56,6 @@ class DogController < Sinatra::Base
   end
 
   post '/dogs/' do
-
     dog = Post.new
     dog.title = params[:title]
     dog.body = params[:body]
@@ -60,10 +64,10 @@ class DogController < Sinatra::Base
     dog.save
 
     redirect "/dogs/"
+
   end
 
   put "/dogs/:id" do
-
     id = params[:id].to_i
 
     dog=Post.find(id)
@@ -79,16 +83,17 @@ class DogController < Sinatra::Base
   end
 
   delete '/dogs/:id' do
-
     id=params[:id].to_i
     Post.destroy(id)
     redirect '/dogs'
+
   end
 
   get '/dogs/:id/edit' do
     id = params[:id].to_i
     @dog = Post.find(id)
     erb :'dogs/edit'
+
   end
 
 end
