@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= @title %></title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  </head>
+  <body>
+  <%= erb(:'partials/angry_navigation', :layout => false) %>
+  <%= erb(:'partials/navigation', :layout => false) %>
+
+  <%= yield %>
+  </body>
+</html>

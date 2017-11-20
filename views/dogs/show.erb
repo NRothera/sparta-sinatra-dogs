@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+  </head>
+  <body>
+
+    <div id="content">
+    <h1 id="title"><%= @dog.title %></h1>
+    <p id='body'><%= @dog.body %></p>
+    <img src="<%= @dog.image %>" alt="">
+    </div>
+
+    <form action=" <%= @dog.id %>" method="POST">
+      <button id="edit" type="button" name="button"><a href='/dogs/<%= @dog.id %>/edit'>Edit</a></button>
+      <input type="hidden" name="_method" value="DELETE">
+      <input id="delete" type="submit" name="name" value="Delete X">
+    </form>
+  </body>
+</html>

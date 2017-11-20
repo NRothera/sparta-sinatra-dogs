@@ -1,0 +1,8 @@
+<h1>Welcome to the angry dogs home page</h1>
+
+<% @angry_dog.each do |dog| %>
+  <div>
+    <h3><a href="/angry_dogs/<%= dog[:id]%>"><%= dog[:title] %></a></h3>
+    <img src="<%= dog[:image]%>" alt="">
+  </div>
+<% end %>
