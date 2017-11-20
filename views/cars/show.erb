@@ -1,0 +1,13 @@
+
+    <div id="content">
+    <h1 id="title"><%= @cars.title %></h1>
+    <p id='body'><%= @cars.body %></p>
+    <img src="<%= @cars.image %>" alt="">
+    </div>
+
+    <form action=" <%= @cars.id %>" method="POST">
+      <button id="edit" type="button" name="button"><a href='/car/<%= @cars.id %>/edit'>Edit</a></button>
+      <input type="hidden" name="_method" value="DELETE">
+      <input id="delete" type="submit" name="name" value="Delete X">
+    </form>
+  

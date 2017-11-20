@@ -19,13 +19,6 @@ class DogController < Sinatra::Base
 
   end
 
-  get "/dogs/" do
-    @title = "Dog Pictures"
-    @dogs = Post.all
-    erb :'dogs/index'
-
-  end
-
   get "/dogs/new" do
     @dog = Post.new
     erb :'dogs/new'
@@ -44,17 +37,6 @@ class DogController < Sinatra::Base
 
   end
 
-  post '/dogs' do
-    dog = Post.new
-    dog.title = params[:title]
-    dog.body = params[:body]
-    dog.image = params[:image]
-
-    dog.save
-
-    redirect "/dogs/"
-  end
-
   post '/dogs/' do
     dog = Post.new
     dog.title = params[:title]
@@ -63,8 +45,7 @@ class DogController < Sinatra::Base
 
     dog.save
 
-    redirect "/dogs/"
-
+    redirect "/dogs"
   end
 
   put "/dogs/:id" do
