@@ -42,7 +42,7 @@ class Car
 
     car = self.hydrate(cars[0])
 
-    cars
+    car
   end
 
   def self.destroy(id)
@@ -58,14 +58,14 @@ class Car
 
   def self.hydrate(car_data)
 
-    car = Car.new
+    cars = Car.new
 
-    car.id = car_data['id']
-    car.title = car_data['title']
-    car.body = car_data['body']
-    car.image = car_data['image']
+    cars.id = car_data['id']
+    cars.title = car_data['title']
+    cars.body = car_data['body']
+    cars.image = car_data['image']
 
-    car
+    cars
   end
 
 end

@@ -79,14 +79,15 @@ img{
 
 #edit_form div {
   margin-top: 20px;
-
+  border-radius: 5px;
 }
 
 #name {
   width:233px;
   margin-right: 36px;
   margin-bottom: 5px;
-  border-radius: 10px;
+  border-radius: 5px;
+  border: 2px solid grey;
 }
 
 #info {

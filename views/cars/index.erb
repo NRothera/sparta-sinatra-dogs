@@ -1,6 +1,6 @@
 <% @cars.each do |car| %>
   <div id="content">
-    <h3><a href="/car/<%= car.id %>"><%= car.title %></a></h3>
+    <h3><a href="/cars/<%= car.id %>"><%= car.title %></a></h3>
     <img src="<%= car.image%>" alt="">
   </div><!-- -->
 <% end %>
